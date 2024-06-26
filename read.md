@@ -1,8 +1,8 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Linkedin: Ajay](https://img.shields.io/badge/-Priya-blue?style=flat-square&logo=Linkedin&logoColor=white&)](https://www.linkedin.com/in/ajay-mulgir2312/)
+[![Linkedin: Ajay](https://img.shields.io/badge/-Ajay-blue?style=flat-square&logo=Linkedin&logoColor=white&)](https://www.linkedin.com/in/ajay-mulgir2312/)
 <!--[![Twitter: shivikapriya](https://img.shields.io/twitter/follow/shivikapriya?style=social)](https://twitter.com/shivikapriya)-->
-[![GitHub: Priya730](https://img.shields.io/github/followers/Priya730?label=Follow%20%40Priya730&style=social)](https://github.com/RockersAj23)
+[![GitHub: Priya730](https://img.shields.io/github/followers/RockersAj23?label=Follow%20%40RockersAj23&style=social)](https://github.com/RockersAj23)
 <hr>
 <h1 align="center"><a href="https://summerofcode.withgoogle.com/programs/2022/projects/YNXT2TFX" target="_blank">Build Access and Entitlements for Hosted version of Augur</a></h1>
 <figure>
