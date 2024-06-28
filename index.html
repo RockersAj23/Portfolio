@@ -1,0 +1,123 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Append Text</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .history {
+            margin-top: 30px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Append News to respective file</h1>
+        <form id="appendForm">
+            <label for="key">Key:</label><br>
+            <input type="text" id="key" name="key" placeholder="Enter key"><br>
+            <label for="text">Text:</label><br>
+            <textarea id="text" name="text" placeholder="Enter text"></textarea><br>
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+        <div id="message"></div>
+        <div id="addMore" style="display:none;">
+            <button type="button" onclick="addMore()">Add One More</button>
+        </div>
+        <div id="quit" style="display:none;">
+            <button type="button" onclick="quit()">Quit</button>
+        </div>
+
+        <div class="history">
+            <h2>History</h2>
+            <ul id="historyList">
+                <!-- History items will be added dynamically using JavaScript -->
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function submitForm() {
+            var formData = new FormData(document.getElementById("appendForm"));
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/submit", true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    document.getElementById("message").innerHTML = xhr.responseText;
+                    document.getElementById("addMore").style.display = 'block';
+                    document.getElementById("quit").style.display = 'block';
+                    document.getElementById("key").value = "";
+                    document.getElementById("text").value = "";
+
+                    // Add the key to the history list
+                    var key = formData.get('key');
+                    var historyList = document.getElementById("historyList");
+                    var listItem = document.createElement("li");
+                    listItem.textContent = key;
+                    historyList.appendChild(listItem);
+                }
+            };
+            xhr.send(formData);
+        }
+
+        function addMore() {
+            document.getElementById("addMore").style.display = 'none';
+            document.getElementById("quit").style.display = 'none';
+            document.getElementById("message").innerHTML = '';
+        }
+
+        function quit() {
+            window.location.href = '/';
+        }
+    </script>
+</body>
+</html>
