@@ -22,70 +22,7 @@ int main()
     {
         ll n;
         cin >> n;
-        string s;
-        cin >> s;
-        ll index = 0;
-        ll common = 0;
-        ll common_max = 0;
-        rep(i, 0, n)
-        {
-            if (s[i] == s[i + 1])
-            {
-                common++;
-            }
-            else
-            {
-                common = 0;
-            }
-            if (common > common_max)
-            {
-                common_max = common;
-                index = i + 2;
-            }
-        }
-        ll bat = 0;
-        if ((common_max + 1) % 2 == 0)
-        {
-            bat = index - ((common_max + 1) / 2);
-        }
-        else
-        {
-            bat = index - ((common_max) / 2);
-        }
-        ll a = 0;
-        ll b = 0;
-        cout << index << " " << common_max + 1 << " " << bat << endl;
-        vector<char> sp;
-        ll pq = 0;
-        for (ll i = 0; i < bat; i++)
-        {
-            pq = sp.size();
-
-            if (i != 0)
-            {
-                if (sp[pq - 2] == s[i])
-                {
-                    continue;
-                }
-            }
-            sp.push_back(s[i]);
-        }
-        vector<char> spl;
-        ll pqr = 0;
-        for (ll i = bat; i < n; i++)
-        {
-            pqr = spl.size();
-            if (i != 0)
-            {
-                if (spl[pqr - 2] == s[i])
-                {
-                    continue;
-                }
-            }
-
-            spl.push_back(s[i]);
-        }
-        cout << sp.size() << " " << spl.size() << endl;
+        cout<<n;      
     }
     return 0;
 }
